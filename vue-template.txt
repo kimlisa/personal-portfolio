@@ -1,0 +1,29 @@
+<template>
+
+</template>
+
+<script>
+export default {
+  name: '',
+  components: {},
+  mixins: [],
+  props: {
+
+  },
+  data: () => ({
+    test: '',
+  }),
+  computed: {
+
+  },
+  created: function () {
+    console.log('hello world');
+  },
+  methods: {
+  },
+};
+</script>
+
+<style scope>
+
+</style>
