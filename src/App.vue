@@ -1,40 +1,11 @@
 <template>
-  <!--<div id="app">-->
-    <!--<div id="nav">-->
-      <!--<router-link to="/">Home</router-link> |-->
-      <!--<router-link to="/about">About</router-link>-->
-    <!--</div>-->
-    <!--<router-view/>-->
-
-    <!---->
-  <!--</div>-->
-
   <div id="app">
-    <main-menu></main-menu>
+    <main-menu
+        :isMobile="false"
+        :isDesktop="true">
+    </main-menu>
     <div id="main-view">
-
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p><p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-      <p>Hello Views</p>
-
-
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -45,10 +16,6 @@ import MainMenu from '@/components/MainMenu.vue';
 export default {
   name: 'App',
   components: { MainMenu },
-  mixins: [],
-  props: {
-
-  },
   data: () => ({
     isMobile: null,
     isDesktop: null,
@@ -74,8 +41,9 @@ export default {
 
 html,
 body {
-  padding: 0;
   margin: 0;
+  overflow: hidden;
+  padding: 0;
 }
 
 
@@ -91,21 +59,9 @@ body {
   width: 100%;
 }
 
+
 #main-view {
-  background:lightblue;
   overflow: scroll;
-  width: 60%;
+  width: 68%;
 }
-/*#nav {*/
-  /*padding: 30px;*/
-/*}*/
-
-/*#nav a {*/
-  /*font-weight: bold;*/
-  /*color: #2c3e50;*/
-/*}*/
-
-/*#nav a.router-link-exact-active {*/
-  /*color: #42b983;*/
-/*}*/
 </style>

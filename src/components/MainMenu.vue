@@ -1,21 +1,24 @@
 <template>
   <div id="menu-view" :class="isMobile ? 'mobile' : 'desktop'">
     <header>
-      <nav>
-        <ul class="top-links">
-          <li class="top-link"><a href="#">home</a></li>
-          <li class="top-link"><a href="#">about</a></li>
-          <li class="top-link"><a href="#">projects</a></li>
-          <li class="top-link"><a href="#">contact</a></li>
+      <nav class="top-links">
+        <ul>
+          <li class="top-link" @click="setIcon('home')"><router-link to="/">home</router-link></li>
+          <li class="top-link" @click="setIcon('about')"><router-link to="/about">about</router-link></li>
+          <li class="top-link" @click="setIcon('projects')"><router-link to="/projects">projects</router-link></li>
+          <li class="top-link" @click="setIcon('contact')"><router-link to="/contact">contact</router-link></li>
         </ul>
       </nav>
     </header>
     <section>
-      <font-awesome-icon icon="code" class="main-icon"></font-awesome-icon>
+      <my-component
+          :is="currentIcon"
+          class="main-icon">
+      </my-component>
     </section>
     <footer>
-      <nav>
-        <ul class="bot-links">
+      <nav class="bot-links">
+        <ul>
           <li class="bot-link">
             <a href="https://github.com/kimlisa" target="_blank">
               <font-awesome-icon
@@ -27,33 +30,13 @@
           </li>
           <li class="bot-link">
             <a href="https://www.linkedin.com/in/kim-lisa/" target="_blank">
-              <font-awesome-layers>
-                <font-awesome-icon
-                    icon="circle"
-                    class="bot-link-icon">
-                </font-awesome-icon>
-                <font-awesome-icon
-                    :icon="['fab', 'linkedin-in']"
-                    class="bot-link-icon-inner-1"
-                    transform="right-5">
-                </font-awesome-icon>
-              </font-awesome-layers>
+              <icon-linked-in class="layered-icon"></icon-linked-in>
               <span v-show="isMobile">LinkedIn</span>
             </a>
           </li>
           <li class="bot-link">
             <a href="#" target="_blank">
-              <font-awesome-layers>
-                <font-awesome-icon
-                    icon="circle"
-                    class="bot-link-icon">
-                </font-awesome-icon>
-                <font-awesome-icon
-                    icon="file-alt"
-                    class="bot-link-icon-inner-1"
-                    transform="right-6">
-                </font-awesome-icon>
-              </font-awesome-layers>
+              <icon-resume class="layered-icon"></icon-resume>
               <span v-show="isMobile">Resume</span>
             </a>
           </li>
@@ -65,9 +48,18 @@
 </template>
 
 <script>
+import IconHome from '@/components/BaseIconHome.vue';
+import IconAbout from '@/components/BaseIconAbout.vue';
+import IconProjects from '@/components/BaseIconProjects.vue';
+import IconContact from '@/components/BaseIconContact.vue';
+import IconLinkedIn from '@/components/BaseIconLayeredLinkedIn.vue';
+import IconResume from '@/components/BaseIconLayeredResume.vue';
+
 export default {
   name: 'MainMenu',
-  components: {},
+  components: {
+    IconHome, IconAbout, IconProjects, IconContact, IconLinkedIn, IconResume,
+  },
   mixins: [],
   props: {
     isMobile: {
@@ -80,7 +72,7 @@ export default {
     },
   },
   data: () => ({
-    test: '',
+    currentIcon: IconHome,
   }),
   computed: {
 
@@ -89,24 +81,51 @@ export default {
     console.log('hello mainmenu');
   },
   methods: {
+    setIcon(menu) {
+      switch (menu) {
+        case 'home':
+          this.currentIcon = IconHome;
+          break;
+        case 'about':
+          this.currentIcon = IconAbout;
+          break;
+        case 'projects':
+          this.currentIcon = IconProjects;
+          break;
+        case 'contact':
+          this.currentIcon = IconContact;
+          break;
+        default:
+          console.error('In MainMenu.vue setIcon "', menu, '" not defined');
+      }
+    },
   },
 };
 </script>
 
-<style scope>
+<style>
+#menu-view .router-link-exact-active {
+  color: #fff;
+  font-weight: 400;
+  border-bottom: 3px solid #fff;
+  padding-bottom: 4px;
+}
+
+
 #menu-view {
-  background: #363636;
+  background: #242526;
   color: #fff;
   text-align: center;
-  width: 40%;
+  width: 32%;
   position: relative;
+  overflow:hidden;
 }
 
 
 #menu-view section {
   align-items: center;
   display: flex;
-  height: 75%;
+  height: calc(100% - 250px);
   justify-content: center;
 }
 
@@ -120,7 +139,7 @@ export default {
 
 
 .bot-link-icon-inner-1 {
-  color: #363636;
+  color: #242526;
   font-size: 32px;
 }
 
@@ -138,13 +157,20 @@ export default {
 
 
 .main-icon {
-  color: #9F9F9F;
   font-size: 160px;
 }
 
 
-#menu-view a {
-  color: #fff;
+.main-icon svg * {
+  fill: url(#icon-gradient);
+}
+
+
+.top-links a,
+.bot-links a {
+  color: #ababab;
+  font-size: 14px;
+  font-weight: 100;
   text-decoration: none;
 }
 
@@ -161,6 +187,32 @@ export default {
 
 .desktop nav li {
   display: inline-block;
+}
+
+
+.top-links {
+  margin-top: 40px;
+}
+
+
+.bot-links {
+  margin-bottom: 40px;
+}
+
+
+.bot-links li {
   margin: 0 20px;
+}
+
+
+.bot-links li:hover {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+
+}
+
+
+.top-links li {
+  margin: 0 15px;
 }
 </style>
