@@ -1,21 +1,25 @@
 <template>
   <div id="app">
-    <main-menu
-        :isMobile="false"
-        :isDesktop="true">
-    </main-menu>
+    <navigation-bar
+      :isMobile="false"
+      :isDesktop="true"
+    >
+    </navigation-bar>
     <div id="main-view">
       <router-view></router-view>
     </div>
+    <footer class="main-footer">
+      <p>2018 &copy; developed by Lisa Kim</p>
+    </footer>
   </div>
 </template>
 
 <script>
-import MainMenu from '@/components/MainMenu.vue';
+import NavigationBar from '@/components/Navigation.vue';
 
 export default {
   name: 'App',
-  components: { MainMenu },
+  components: { NavigationBar },
   data: () => ({
     isMobile: null,
     isDesktop: null,
@@ -42,26 +46,36 @@ export default {
 html,
 body {
   margin: 0;
-  overflow: hidden;
   padding: 0;
+  overflow: hidden;
+}
+
+
+a {
+  text-decoration: none;
 }
 
 
 #app {
-  color: #2c3e50;
-  display:flex;
+  font: 16px/1.7 normal normal;
   font-family: Helvetica, Arial, sans-serif;
+  letter-spacing: .03em;
   /*-webkit-font-smoothing: antialiased;*/
   /*-moz-osx-font-smoothing: grayscale;*/
-  height: 100vh;
-  overflow:hidden;
-  position: relative;
-  width: 100%;
+
 }
+</style>
+
+<style scoped>
+  .main-footer {
+    color: #B9B9B9;
+    font-size: .8em;
+    font-weight: 100;
+    text-align: center;
+  }
 
 
-#main-view {
-  overflow: scroll;
-  width: 68%;
-}
+  .main-footer p {
+    margin: 0;
+  }
 </style>
