@@ -6,7 +6,7 @@
           <font-awesome-icon icon="angle-left"></font-awesome-icon>
         </div>
       </transition>
-      <transition name="fade-in-down" appear>
+      <transition name="fade-in-down" appear v-on:after-enter="afterEnterIcon">
         <div class="slash icon">/</div>
       </transition>
       <transition name="fade-in-right" appear>
@@ -43,10 +43,13 @@ export default {
   computed: {
 
   },
-  mounted() {
+  mounted: function () {
 
   },
   methods: {
+    afterEnterIcon() {
+      this.showTitle = true;
+    },
     enterTitle() {
       this.$emit('homeTransitioned');
     },
@@ -63,7 +66,6 @@ export default {
     position: relative;
     height: calc(100vh - 135px);
   }
-
 
   .icon-wrapper,
   .title {
