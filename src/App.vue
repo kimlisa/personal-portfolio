@@ -1,16 +1,23 @@
 <template>
   <div id="app">
-    <navigation-bar
-      :isMobile="false"
-      :isDesktop="true"
-    >
-    </navigation-bar>
-    <div id="main-view">
-      <router-view></router-view>
+    <div class="nav-wrapper">
+      <transition name="fade-in-down">
+        <navigation-bar
+          :isMobile="false"
+          :isDesktop="true"
+          v-if="showNav"
+        >
+        </navigation-bar>
+      </transition>
     </div>
-    <footer class="main-footer">
-      <p>2018 &copy; developed by Lisa Kim</p>
-    </footer>
+    <div id="main-view">
+      <router-view @homeTransitioned="finishHomeTransition"></router-view>
+    </div>
+    <transition name="fade-in-up">
+      <footer class="main-footer" v-if="showFooter">
+        <p>2018 &copy; developed by Lisa Kim</p>
+      </footer>
+    </transition>
   </div>
 </template>
 
@@ -23,6 +30,8 @@ export default {
   data: () => ({
     isMobile: null,
     isDesktop: null,
+    showNav: false,
+    showFooter: false,
   }),
   computed: {
 
@@ -33,6 +42,10 @@ export default {
     // event listener for resize window
   },
   methods: {
+    finishHomeTransition(e) {
+      this.showNav = true;
+      this.showFooter = true;
+    },
   },
 };
 </script>
@@ -62,8 +75,49 @@ a {
   letter-spacing: .03em;
   /*-webkit-font-smoothing: antialiased;*/
   /*-moz-osx-font-smoothing: grayscale;*/
-
 }
+
+/*********************************
+  transitions
+*********************************/
+.fade-in-down-enter-active,
+.fade-in-left-enter-active,
+.fade-in-right-enter-active,
+.fade-in-enter-active,
+.fade-in-up-enter-active{
+  transition: 1s;
+  opacity: 1;
+}
+
+
+.fade-in-left-enter {
+  transform: translate(-150%, 0);
+  opacity: 0;
+}
+
+
+.fade-in-right-enter {
+  transform: translate(100%, 0);
+  opacity: 0;
+}
+
+
+.fade-in-down-enter {
+  opacity: 0;
+  transform: translate(0, -100%)
+}
+
+
+.fade-in-up-enter {
+  opacity: 0;
+  transform: translate(0, 100%);
+}
+
+
+.fade-in-enter {
+  opacity: 0;
+}
+
 </style>
 
 <style scoped>
@@ -77,5 +131,9 @@ a {
 
   .main-footer p {
     margin: 0;
+  }
+
+  .nav-wrapper {
+    height: 68px;
   }
 </style>

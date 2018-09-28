@@ -1,18 +1,26 @@
 <template>
   <div class="home">
     <div class="icon-wrapper">
-      <div class="left-angle icon">
-        <font-awesome-icon icon="angle-left"></font-awesome-icon>
-      </div>
-      <div class="slash icon">/</div>
-      <div class="right-angle icon">
-        <font-awesome-icon icon="angle-right"></font-awesome-icon>
-      </div>
+      <transition name="fade-in-left" appear>
+        <div class="left-angle icon" >
+          <font-awesome-icon icon="angle-left"></font-awesome-icon>
+        </div>
+      </transition>
+      <transition name="fade-in-down" appear>
+        <div class="slash icon">/</div>
+      </transition>
+      <transition name="fade-in-right" appear>
+        <div class="right-angle icon" >
+          <font-awesome-icon icon="angle-right"></font-awesome-icon>
+        </div>
+      </transition>
     </div>
-    <header class="title">
-      <h1>LISA KIM</h1>
-      <p>Front End Developer</p>
-    </header>
+    <transition name="fade-in" v-on:enter="enterTitle">
+      <header class="title" v-if="showTitle">
+        <h1>LISA KIM</h1>
+        <p>Front End Developer</p>
+      </header>
+    </transition>
   </div>
 </template>
 
@@ -23,6 +31,26 @@
 export default {
   name: 'home',
   components: {},
+  mixins: [],
+  props: {
+
+  },
+  data: () => ({
+    showAngles: false,
+    showSlash: false,
+    showTitle: false,
+  }),
+  computed: {
+
+  },
+  mounted() {
+
+  },
+  methods: {
+    enterTitle() {
+      this.$emit('homeTransitioned');
+    },
+  },
 };
 </script>
 
@@ -35,6 +63,7 @@ export default {
     position: relative;
     height: calc(100vh - 135px);
   }
+
 
   .icon-wrapper,
   .title {
@@ -54,7 +83,7 @@ export default {
 
 
   .icon {
-    color: #f7f7f7;
+    color: #f1f1f1;
     font-size: 380px;
   }
 
@@ -70,8 +99,8 @@ export default {
 
   h1 {
     font-size: 88px;
-    font-weight: 300;
-    letter-spacing: .2em;
+    font-weight: 400;
+    letter-spacing: .15em;
     margin:0;
     color: #000000;
     line-height: 1.4;

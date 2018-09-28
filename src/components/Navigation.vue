@@ -59,9 +59,10 @@ export default {
     font-size: .88em;
     font-weight: 100;
     list-style-type: none;
-    margin: 45px auto 0 auto;
     padding: 0;
+    margin: 0;
     text-align: center;
+    padding-top: 45px;
   }
 
 
