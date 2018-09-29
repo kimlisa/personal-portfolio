@@ -16,7 +16,7 @@ export default {
   computed: {
 
   },
-  created: function () {
+  created() {
     console.log('hello world');
   },
   methods: {

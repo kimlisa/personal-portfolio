@@ -5,16 +5,21 @@
         <navigation-bar
           :isMobile="false"
           :isDesktop="true"
-          v-if="showNav"
+          :atHome="atHome"
+          v-if="showNav || !atHome"
         >
         </navigation-bar>
       </transition>
     </div>
     <div id="main-view">
-      <router-view @homeTransitioned="finishHomeTransition"></router-view>
+      <router-view
+          @homeTransitioned="finishHomeTransition"
+          @navAwayHome="atHome = false"
+          @atHome="atHome = true"
+      ></router-view>
     </div>
     <transition name="fade-in-up">
-      <footer class="main-footer" v-if="showFooter">
+      <footer class="main-footer" v-if="showFooter || !atHome">
         <p>2018 &copy; developed by Lisa Kim</p>
       </footer>
     </transition>
@@ -30,6 +35,7 @@ export default {
   data: () => ({
     isMobile: null,
     isDesktop: null,
+    atHome: false,
     showNav: false,
     showFooter: false,
   }),
@@ -60,7 +66,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 
@@ -135,5 +140,10 @@ a {
 
   .nav-wrapper {
     height: 68px;
+  }
+
+
+  #main-view {
+    text-align: center;
   }
 </style>

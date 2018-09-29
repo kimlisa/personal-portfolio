@@ -43,8 +43,13 @@ export default {
   computed: {
 
   },
-  mounted: function () {
-
+  beforeCreate() {
+    document.body.style.overflow = 'hidden';
+    this.$emit('atHome');
+  },
+  beforeDestroy() {
+    document.body.style.overflow = 'auto';
+    this.$emit('navAwayHome');
   },
   methods: {
     afterEnterIcon() {
