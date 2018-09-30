@@ -21,7 +21,6 @@ export default {
   created() {
   },
   mounted() {
-    console.log('in conatct', this.prevLink);
   },
   methods: {
   },

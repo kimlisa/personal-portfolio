@@ -1,25 +1,23 @@
 <template>
   <div id="app">
     <div class="nav-wrapper">
-      <transition name="fade-in-down">
         <navigation-bar
           :isMobile="false"
           :isDesktop="true"
-          :atHome="atHome"
-          v-if="showNav || !atHome"
+          :navType="navType"
+          :showNav="showNav"
         >
         </navigation-bar>
-      </transition>
     </div>
     <div id="main-view">
       <router-view
           @homeTransitioned="finishHomeTransition"
-          @navAwayHome="atHome = false"
-          @atHome="atHome = true"
+          @navAwayHome="navType = 'vertical'"
+          @atHome="navType = 'horizontal'"
       ></router-view>
     </div>
     <transition name="fade-in-up">
-      <footer class="main-footer" v-if="showFooter || !atHome">
+      <footer class="main-footer" v-if="showFooter">
         <p>2018 &copy; developed by Lisa Kim</p>
       </footer>
     </transition>
@@ -35,7 +33,8 @@ export default {
   data: () => ({
     isMobile: null,
     isDesktop: null,
-    atHome: false,
+    atHome: null,
+    navType: '',
     showNav: false,
     showFooter: false,
   }),
@@ -43,12 +42,19 @@ export default {
 
   },
   created() {
-    console.log('hello app');
+    console.log('FIRST: setting app');
+    this.navType = this.$router.currentRoute.name === 'home' ? 'horizontal' : 'vertical';
+    if (this.$router.currentRoute.name === 'home') {
+      this.navType = 'horizontal';
+    } else {
+      this.navType = 'vertical';
+      this.showFooter = true;
+    }
     // check window size
     // event listener for resize window
   },
   methods: {
-    finishHomeTransition(e) {
+    finishHomeTransition() {
       this.showNav = true;
       this.showFooter = true;
     },
