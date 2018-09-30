@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="nav-wrapper">
+    <div :class="navType === 'horizontal' ? 'nav-wrapper' : ''">
         <navigation-bar
           :isMobile="false"
           :isDesktop="true"

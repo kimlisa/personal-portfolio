@@ -40,9 +40,10 @@ export default {
 
 <style scope>
   .vertical-sticky-nav {
-    position: relative;
+    position: fixed;
     width: 200px;
     text-align: left;
+    top: -12px;
   }
 
 
