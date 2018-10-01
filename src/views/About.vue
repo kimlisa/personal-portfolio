@@ -25,6 +25,59 @@
           slot="header"
           title="education"
       ></section-header>
+      <section slot="content" class="section-content-flex">
+        <div class="left-content school-info">
+          <span class="grad-school">University of Washington</span>
+          <span class="grad-date">SEP 2016 - JUN 2018</span>
+          <span class="degree-name">B.S. Computer Science</span>
+          <span class="honors">Cum Laude Honors</span>
+          <span class="gpa">GPA 3.76</span>
+        </div>
+        <div class="right-content">
+          <font-awesome-icon icon="graduation-cap" class="section-icon"></font-awesome-icon>
+        </div>
+      </section>
+    </page-section>
+    <page-section>
+      <section-header
+        slot="header"
+        title="skills"
+        :right-align="true"
+      ></section-header>
+      <section slot="content" class="section-content-flex skill-section">
+        <div class="left-bracket">{</div>
+        <ul class="skill-list-1">
+          <li>Vue.js</li>
+          <li>Node.js</li>
+          <li>Python3</li>
+        </ul>
+        <ul class="skill-list-2">
+          <li>Responsive</li>
+          <li>CSS / HTML</li>
+          <li>jQuery</li>
+        </ul>
+        <ul class="skill-list-3">
+          <li>MongoDB</li>
+          <li>REST API</li>
+          <li>Git / GitHub</li>
+        </ul>
+        <div class="right-bracket">}</div>
+      </section>
+    </page-section>
+    <page-section :add-bg="true">
+      <section-header
+          slot="header"
+          title="more"
+      ></section-header>
+      <section slot="content" class="section-content-flex more-section">
+        <div class="left-content">
+          view resume<br>
+          kimlisa@uw.edu
+        </div>
+        <div class="right-content">
+          <img src="@/assets/me1.jpg" class="my-photo">
+        </div>
+      </section>
     </page-section>
   </div>
 </template>
@@ -59,5 +112,59 @@ export default {
 };
 </script>
 <style scoped>
+.section-content-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+  .section-icon {
+    color: #D6D6D6;
+    font-size: 7em;
+  }
 
+  .school-info span {
+    display: block;
+  }
+
+  .grad-school {
+    color: #656565;
+    font-size: 1.2em;
+    font-weight: 400;
+  }
+
+  .grad-date {
+    color: #989898;
+    font-size: .84em;
+    line-height: .98;
+    margin-bottom: 25px;
+  }
+
+  .honors, .gpa {
+    font-size: .85em;
+    color: #646464;
+  }
+
+  .degree-name, .honors, .gpa {
+    line-height: 1.4;
+  }
+
+  .left-bracket, .right-bracket {
+    font-size: 12em;
+    color: #E8E8E8;
+    line-height: 1;
+  }
+
+  .skill-section ul {
+    list-style-type: none;
+    margin: 40px 0 0 0;
+    padding: 0;
+  }
+  .skill-section li {
+    margin-bottom: 10px;
+  }
+
+  .my-photo {
+    width: 200px;
+    border-radius: 50%;
+  }
 </style>

@@ -33,6 +33,9 @@ export default {
     this.currRoute = this.$router.currentRoute.name
     console.log('vertical nav created: ', this.$router.currentRoute.name);
   },
+  destroyed() {
+    window.scrollTo(0, 0);
+  },
   methods: {
   },
 };
