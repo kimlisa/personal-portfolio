@@ -72,7 +72,7 @@ export default {
   }
 
   .section-title {
-    color: #dedede;
+    color: #d8d8d8;
     font-size: 2.7em;
     letter-spacing: 3px;
   }
