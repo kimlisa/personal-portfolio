@@ -7,6 +7,7 @@ import {
   faCode, faCircle, faUser, faHome,
   faFileAlt, faWrench, faEnvelope, faGraduationCap, faToolbox,
   faAngleLeft, faAngleRight, faHeart, faBookOpen, faCoffee, faMusic,
+  faLocationArrow,
 } from '@fortawesome/free-solid-svg-icons';
 
 import App from './App.vue';
@@ -16,9 +17,10 @@ library.add(
   faCode, faCircle, faEnvelope, faUser, faHome, faFileAlt,
   faWrench, faGithub, faLinkedinIn, faGraduationCap, faToolbox,
   faAngleLeft, faAngleRight, faHeart, faBookOpen, faCoffee, faMusic,
+  faLocationArrow,
 );
-Vue.component('font-awesome-icon', FontAwesomeIcon);
-Vue.component('font-awesome-layers', FontAwesomeLayers);
+Vue.component('FontAwesomeIcon', FontAwesomeIcon);
+Vue.component('FontAwesomeLayers', FontAwesomeLayers);
 
 Vue.config.productionTip = false;
 

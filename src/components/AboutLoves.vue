@@ -2,22 +2,22 @@
   <PageSection title="loves" :centerAlign="true" class="love-section">
     <div slot="content" class="likes">
       <div class="music">
-        <font-awesome-icon icon="music" class="music-icon"></font-awesome-icon>
+        <FontAwesomeIcon icon="music" class="music-icon"/>
       </div>
       <p>coffee, tea, soup, sparkles</p>
-      <font-awesome-icon icon="coffee" class="coffee-icon"></font-awesome-icon>
+      <FontAwesomeIcon icon="coffee" class="coffee-icon"/>
     </div>
   </PageSection>
 </template>
 
 <script>
-  import PageSection from '@/components/BasePageSection.vue';
-  import FlexContent from '@/components/BasePageSectionContentFlex.vue';
+import PageSection from '@/components/BasePageSection.vue';
 
-  export default {
-    name: 'AboutLoves',
-    components: { PageSection, FlexContent },
-  };
+
+export default {
+  name: 'AboutLoves',
+  components: { PageSection, },
+};
 </script>
 
 <style scope>
@@ -43,7 +43,7 @@
     left: -10px;
     right: 0;
     top: -130px;
-    color: #fafafa;
+    color: #f8f8f8;
     margin: 0 auto;
   }
   .likes p {

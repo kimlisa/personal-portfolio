@@ -9,7 +9,7 @@
         <span class="gpa">GPA 3.76</span>
       </div>
       <div slot="right-content">
-        <font-awesome-icon icon="graduation-cap" class="section-icon"></font-awesome-icon>
+        <FontAwesomeIcon icon="graduation-cap" class="section-icon"/>
       </div>
     </FlexContent>
   </PageSection>

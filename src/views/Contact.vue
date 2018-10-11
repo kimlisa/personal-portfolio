@@ -1,13 +1,23 @@
 <template>
   <div class="contact">
-    <h1>This is contact page</h1>
+    <PageHeader title="contact"/>
+    <MailForm/>
+    <Location/>
+    <Connect/>
   </div>
 </template>
 
 <script>
+import PageHeader from '@/components/BasePageHeader.vue';
+import MailForm from '@/components/ContactMailForm.vue';
+import Location from '@/components/ContactLocation.vue';
+import Connect from '@/components/ContactConnect.vue';
+
 export default {
   name: 'Contact',
-  components: {},
+  components: {
+    PageHeader, MailForm, Location, Connect,
+  },
   mixins: [],
   props: {
     prevLink: {},

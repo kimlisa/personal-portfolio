@@ -1,13 +1,17 @@
 <template>
   <div class="projects">
-    <h1>This is projects page</h1>
+    <PageHeader title="projects"/>
   </div>
 </template>
 
 <script>
+import PageHeader from '@/components/BasePageHeader.vue';
+
 export default {
   name: 'Projects',
-  components: {},
+  components: {
+    PageHeader,
+  },
   mixins: [],
   props: {
     prevLink: {},
@@ -23,7 +27,6 @@ export default {
   },
   mounted() {
     console.log('in projects: ', this.prevLink);
-
   },
   methods: {
   },

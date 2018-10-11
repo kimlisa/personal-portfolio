@@ -1,11 +1,11 @@
 <template>
   <PageSection title="skills" :right-align="true">
-    <template slot="content" class="skill-section">
-      <FlexContent>
+    <template slot="content">
+      <FlexContent class="skill-section">
         <div class="left-bracket">{</div>
         <ul class="skills list-1">
           <li>Vue.js</li>
-          <li>Node.js</li>
+          <li>SPA</li>
           <li>Python3</li>
         </ul>
         <ul class="skills list-2">
@@ -46,9 +46,9 @@ export default {
   }
 
   .skill-section ul {
-    list-style-type: none;
     margin: 40px 0 0 0;
     padding: 0;
+    list-style-type: none;
   }
   .skill-section li {
     margin-bottom: 10px;
