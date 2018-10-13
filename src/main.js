@@ -7,7 +7,7 @@ import {
   faCode, faCircle, faUser, faHome,
   faFileAlt, faWrench, faEnvelope, faGraduationCap, faToolbox,
   faAngleLeft, faAngleRight, faHeart, faBookOpen, faCoffee, faMusic,
-  faLocationArrow,
+  faLocationArrow, faStar,
 } from '@fortawesome/free-solid-svg-icons';
 
 import App from './App.vue';
@@ -17,7 +17,7 @@ library.add(
   faCode, faCircle, faEnvelope, faUser, faHome, faFileAlt,
   faWrench, faGithub, faLinkedinIn, faGraduationCap, faToolbox,
   faAngleLeft, faAngleRight, faHeart, faBookOpen, faCoffee, faMusic,
-  faLocationArrow,
+  faLocationArrow, faStar,
 );
 Vue.component('FontAwesomeIcon', FontAwesomeIcon);
 Vue.component('FontAwesomeLayers', FontAwesomeLayers);

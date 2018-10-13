@@ -44,7 +44,7 @@ export default {
 <style scope>
   .section-wrapper {
     font-weight: 300;
-    padding: 80px;
+    padding: 75px;
     text-align: left;
     width: 100%;
   }
@@ -73,7 +73,7 @@ export default {
 
   .section-title {
     color: #d8d8d8;
-    font-size: 2.7em;
+    font-size: 2.5em;
     letter-spacing: 3px;
   }
 

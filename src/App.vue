@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div :class="navType === 'horizontal' ? 'nav-wrapper' : ''">
+    <div :class="navType === 'horizontal' ? 'app__nav-wrapper' : ''">
         <navigation-bar
           :isMobile="false"
           :isDesktop="true"
@@ -9,7 +9,7 @@
         >
         </navigation-bar>
     </div>
-    <div id="main-view">
+    <div id="app__main-view">
       <router-view
           @homeTransitioned="finishHomeTransition"
           @navAwayHome="navType = 'vertical'"
@@ -17,8 +17,9 @@
       ></router-view>
     </div>
     <transition name="fade-in-up">
-      <footer class="main-footer" v-if="showFooter">
-        <p>2018 &copy; developed by Lisa Kim</p>
+      <footer class="app__main-footer" v-if="showFooter">
+        <p class="app__main-footer__text">2018 &copy; developed by Lisa Kim</p>
+        <FooterIcons v-show="navType !== 'horizontal'"/>
       </footer>
     </transition>
   </div>
@@ -26,10 +27,13 @@
 
 <script>
 import NavigationBar from '@/components/Navigation.vue';
+import FooterIcons from '@/components/FooterIcons.vue';
 
 export default {
   name: 'App',
-  components: { NavigationBar },
+  components: {
+    NavigationBar, FooterIcons,
+  },
   data: () => ({
     isMobile: null,
     isDesktop: null,
@@ -132,7 +136,7 @@ a {
 </style>
 
 <style scoped>
-  .main-footer {
+  .app__main-footer {
     color: #B9B9B9;
     font-size: .8em;
     font-weight: 100;
@@ -140,16 +144,16 @@ a {
   }
 
 
-  .main-footer p {
+  .app__main-footer__text {
     margin: 0;
   }
 
-  .nav-wrapper {
+  .app__nav-wrapper {
     height: 68px;
   }
 
 
-  #main-view {
+  #app__main-view {
     text-align: center;
   }
 </style>

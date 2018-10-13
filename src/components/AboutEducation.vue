@@ -32,7 +32,7 @@ export default {
 
   .grad-school {
     color: #656565;
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: 400;
   }
 

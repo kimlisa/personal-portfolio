@@ -1,5 +1,5 @@
 <template>
-  <PageSection title="skills" :right-align="true">
+  <PageSection title="skills" :right-align="true" class="skills">
     <template slot="content">
       <FlexContent class="skill-section">
         <div class="left-bracket">{</div>
@@ -51,6 +51,10 @@ export default {
     list-style-type: none;
   }
   .skill-section li {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+  }
+
+  .skills h2 {
+    margin-bottom: 0px;
   }
 </style>

@@ -17,7 +17,7 @@
         </div>
       </div>
       <div slot="right-content">
-        <img src="@/assets/me1.jpg" class="my-photo">
+        <img src="@/assets/me3.jpg" class="my-photo">
       </div>
     </FlexContent>
   </PageSection>

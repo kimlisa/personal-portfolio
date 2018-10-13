@@ -8,7 +8,7 @@
           <li class="heart-icon">
             <transition v-bind:name="aboutTransition">
               <font-awesome-icon
-                  icon="heart"
+                  icon="star"
                   v-if="activateIcon.about && showIcon"
               ></font-awesome-icon>
             </transition>
@@ -16,7 +16,7 @@
           <li class="heart-icon">
             <transition v-bind:name="projectsTransition">
               <font-awesome-icon
-                  icon="heart"
+                  icon="star"
                   v-if="activateIcon.projects && showIcon"
               ></font-awesome-icon>
             </transition>
@@ -24,7 +24,7 @@
           <li class="heart-icon">
             <transition v-bind:name="contactTransition">
               <font-awesome-icon
-                  icon="heart"
+                  icon="star"
                   v-if="activateIcon.contact && showIcon"
               ></font-awesome-icon>
             </transition>
@@ -114,7 +114,8 @@ export default {
 <style scope>
   .vertical-bar {
     position: absolute;
-    background: #D8D8D8;
+    /*background: #c2536f;*/
+    background: #aeacb2;
     z-index: 2;
     width: 8px;
     height: 210px;
@@ -127,7 +128,7 @@ export default {
   .heart-icon-container {
     list-style-type: none;
     position: absolute;
-    left:-53px;
+    left:-56px;
     font-size: 32px;
     top: 7px;
   }

@@ -18,7 +18,7 @@ export default {
 
 <style scope>
   .page-title {
-    color: #e8e8e8;
+    color: #e2e2e2;
     font-size: 3em;
   }
 

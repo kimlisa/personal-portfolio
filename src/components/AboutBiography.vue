@@ -31,6 +31,10 @@ export default {
 
 <style scope>
   .biography {
-    padding-top: 10px;
+    padding-top: 5px;
   }
+  .biography p:last-child {
+    margin-bottom: 0;
+  }
+
 </style>

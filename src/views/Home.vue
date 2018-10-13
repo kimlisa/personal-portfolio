@@ -17,8 +17,8 @@
     </div>
     <transition name="fade-in" v-on:enter="enterTitle">
       <header class="title" v-if="showTitle">
-        <h1>LISA KIM</h1>
-        <p>Front End Developer</p>
+        <h1>lisa kim</h1>
+        <p>front end developer</p>
       </header>
     </transition>
   </div>
@@ -105,8 +105,8 @@ export default {
 
 
   h1 {
-    font-size: 88px;
-    font-weight: 400;
+    font-size: 96px;
+    font-weight: 600;
     letter-spacing: .15em;
     margin:0;
     color: #000000;
