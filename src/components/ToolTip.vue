@@ -27,10 +27,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    bottom: {
-      type: Boolean,
-      default: false,
-    },
     tip: {
       type: String,
       required: true,
@@ -44,10 +40,7 @@ export default {
       if (this.right) {
         return 'tool-tip__text--right';
       }
-      if (this.bottom) {
-        return 'tool-tip__text--bottom';
-      }
-      return 'tool-tip__text--right';
+      return 'tool-tip__text--top';
     },
   },
 };
@@ -59,6 +52,9 @@ export default {
 .tool-tip {
   display: inline-block;
   position: relative;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 
 
@@ -66,11 +62,8 @@ export default {
   position: absolute;
   background: #000;
   color: #fff;
-  padding: 5px 8px;
+  padding: 8px;
   border-radius: 4px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%)
 }
 
 
@@ -78,29 +71,33 @@ export default {
   content: '';
   position: absolute;
   background: #000;
+  z-index: -1;
+}
+
+
+.tool-tip__text--top {
+  top: -38px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%)
+}
+
+
+.tool-tip__text--top::after {
+  height: 14px;
+  width: 10px;
+  top: 23px;
   left: 50%;
   -webkit-transform: rotate(45deg) translateX(-50%);
   transform: rotate(45deg) translateX(-50%);
 }
 
 
-.tool-tip__text--top {
-  top: -38px;
-}
-
-
-.tool-tip__text--top::after {
-  height: 12px;
-  width: 8px;
-}
-
-
 .tool-tip__text--right {
-  left: 38px;
+  left: 25px;
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%)
-
 }
 
 
@@ -114,13 +111,4 @@ export default {
 }
 
 
-.tool-tip__text--bottom {
-  bottom: -38px;
-}
-
-.tool-tip__text--bottom::after {
-  bottom: 21px;
-  height: 8px;
-  width: 12px;
-}
 </style>
