@@ -55,6 +55,7 @@ export default {
   margin: 0;
   padding: 0;
   line-height: 1;
+  white-space: nowrap;
 }
 
 
@@ -64,6 +65,7 @@ export default {
   color: #fff;
   padding: 8px;
   border-radius: 4px;
+  font-size: 14px;
 }
 
 
@@ -94,7 +96,7 @@ export default {
 
 
 .tool-tip__text--right {
-  left: 25px;
+  left: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%)

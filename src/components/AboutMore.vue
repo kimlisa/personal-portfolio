@@ -6,7 +6,11 @@
         <a href="./kimlisa_resume.pdf" target="_blank">
           view resume
         </a><br>
-        <FontAwesomeIcon icon="envelope" class="more-icon email"/> kimlisa@uw.edu<br>
+        <FontAwesomeIcon icon="envelope" class="more-icon email"/>
+        <CopyToClipboard
+          :text="'kimlisa@uw.edu'"
+          :copyType="'email'"
+        />
         <div class="social-media">
           <a href="https://github.com/kimlisa" target="_blank">
             <FontAwesomeIcon :icon="['fab', 'github']" class="sm-icon"/>
@@ -26,10 +30,16 @@
 <script>
 import PageSection from '@/components/BasePageSection.vue';
 import FlexContent from '@/components/BasePageSectionContentFlex.vue';
+import CopyToClipboard from '@/components/CopyToClipboard.vue';
 
 export default {
   name: 'AboutMore',
-  components: { PageSection, FlexContent },
+  components: {
+    PageSection, FlexContent, CopyToClipboard,
+  },
+  data: () => ({
+    email: 'kimlisa@uw.edu',
+  }),
   created() {
   },
 };
