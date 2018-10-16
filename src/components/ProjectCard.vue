@@ -1,5 +1,10 @@
 <template>
-  <div class="project-card" @mouseover="showAltText = true" @mouseleave="showAltText = false">
+  <div
+    class="project-card"
+    @mouseover="showAltText = true"
+    @mouseleave="showAltText = false"
+    @click="$emit('showModal')"
+  >
     <MacBar class="mac-bar"/>
     <div class="project-card__text-box" v-show="!showAltText" >
       <h3 class="project-card__title">

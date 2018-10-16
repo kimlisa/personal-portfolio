@@ -2,7 +2,7 @@
   <div class="projects">
     <PageHeader title="projects"/>
     <div class="projects__cards">
-      <ProjectCard >
+      <ProjectCard @showModal="showModal = true">
         <template slot="title">HWSC Database</template>
         <template slot="description">
           Tool for biologists to add and track data about humpback whales.
@@ -18,6 +18,7 @@
         <template slot="tools">Vue.js, CSS/HTML, ...</template>
       </ProjectCard>
     </div>
+    <ProjectHWSC v-show="showModal" @closeModal="showModal = false"/>
   </div>
 </template>
 
@@ -25,11 +26,12 @@
 import PageSection from '@/components/BasePageSection.vue';
 import PageHeader from '@/components/BasePageHeader.vue';
 import ProjectCard from '@/components/ProjectCard.vue';
+import ProjectHWSC from '@/components/ProjectHWSC.vue';
 
 export default {
   name: 'Projects',
   components: {
-    PageHeader, ProjectCard, PageSection,
+    PageHeader, ProjectCard, PageSection, ProjectHWSC,
   },
   mixins: [],
   props: {
@@ -37,6 +39,7 @@ export default {
   },
   data: () => ({
     modalView: '',
+    showModal: false,
   }),
   computed: {
 
@@ -48,6 +51,7 @@ export default {
     console.log('in projects: ', this.prevLink);
   },
   methods: {
+
   },
 };
 </script>
