@@ -12,7 +12,7 @@
     <div id="app__main-view">
       <router-view
           @homeTransitioned="finishHomeTransition"
-          @navAwayHome="navType = 'vertical'"
+          @navAwayHome="useHorizontalMenu ? navType = 'horizontal' : navType = 'vertical'"
           @atHome="navType = 'horizontal'"
       ></router-view>
     </div>
@@ -41,26 +41,53 @@ export default {
     navType: '',
     showNav: false,
     showFooter: false,
+    useHorizontalMenu: false,
   }),
   computed: {
 
   },
   created() {
     console.log('FIRST: setting app');
-    this.navType = this.$router.currentRoute.name === 'home' ? 'horizontal' : 'vertical';
-    if (this.$router.currentRoute.name === 'home') {
+    // check window size
+    this.determineSizeType(window.innerWidth);
+
+    this.resizeListener = () => {
+      console.log('resizing: ', window.innerWidth);
+      this.determineSizeType(window.innerWidth);
+    };
+    window.addEventListener('resize', this.resizeListener);
+
+    if (this.$router.currentRoute.name === 'home' || this.useHorizontalMenu) {
       this.navType = 'horizontal';
     } else {
       this.navType = 'vertical';
       this.showFooter = true;
     }
-    // check window size
-    // event listener for resize window
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.resizeListener);
   },
   methods: {
     finishHomeTransition() {
       this.showNav = true;
       this.showFooter = true;
+    },
+    determineSizeType(width) {
+      console.log('window size: ', width);
+      if (width > 1119) {
+        this.isDesktop = true;
+        this.isMobile = false;
+        this.useHorizontalMenu = false;
+      } else if (width >= 800 && width <= 1119) {
+        this.isDesktop = true;
+        this.isMobile = false;
+        this.useHorizontalMenu = true;
+      } else if (width < 800) {
+        this.isDesktop = false;
+        this.isMobile = true;
+        this.useHorizontalMenu = false;
+      }
+      console.log("use horizontal menu: ", this.useHorizontalMenu)
     },
   },
 };
@@ -91,7 +118,6 @@ a {
   /*-webkit-font-smoothing: antialiased;*/
   /*-moz-osx-font-smoothing: grayscale;*/
 }
-
 
 
 /*********************************

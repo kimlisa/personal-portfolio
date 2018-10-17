@@ -1,8 +1,8 @@
 <template>
-  <my-component
+  <component
       :is="getNavComponent"
       :showNav="showNav"
-  ></my-component>
+  ></component>
 </template>
 
 <script>
