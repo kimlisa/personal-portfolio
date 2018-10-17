@@ -18,7 +18,11 @@
         <template slot="tools">Vue.js, CSS/HTML, ...</template>
       </ProjectCard>
     </div>
-    <ProjectHWSC v-show="showModal" @closeModal="showModal = false"/>
+    <ProjectHWSC
+      v-show="showModal"
+      @closeModal="showModal = false"
+      :loadSlider="showModal"
+    />
   </div>
 </template>
 

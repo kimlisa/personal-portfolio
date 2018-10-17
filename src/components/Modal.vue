@@ -20,6 +20,7 @@ export default {
   name: 'Modal',
   mounted() {
     this.clickListener = (e) => {
+      console.log("click")
       if (this.$refs.modalBackdrop === e.target) {
         this.$emit('closeModal');
       }
