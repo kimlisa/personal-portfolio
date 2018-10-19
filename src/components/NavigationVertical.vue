@@ -1,12 +1,12 @@
 <template>
   <nav class="vertical-sticky-nav">
-    <vertical-bar
+    <VerticalBar
         :currRoute="currRoute"
-    ></vertical-bar>
-    <nav-links
+    />
+    <NavLinks
         :applyCSS="true"
         @gotCurrRoute="currRoute = $event"
-    ></nav-links>
+    />
   </nav>
 </template>
 
@@ -41,7 +41,7 @@ export default {
 };
 </script>
 
-<style scope>
+<style scoped>
   .vertical-sticky-nav {
     position: fixed;
     width: 200px;
@@ -50,12 +50,12 @@ export default {
   }
 
 
-  .vertical-sticky-nav .nav-link-container {
+  .vertical-sticky-nav >>> .nav-link-container {
     margin-left: 88px;
   }
 
 
-  .vertical-sticky-nav .nav-link {
+  .vertical-sticky-nav >>> .nav-link {
     margin-bottom: 15px;
   }
 </style>

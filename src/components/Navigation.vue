@@ -8,22 +8,15 @@
 <script>
 import NavHorizontal from '@/components/NavigationHorizontal.vue';
 import NavVertical from '@/components/NavigationVertical.vue';
+import NavHamburger from '@/components/NavigationHamburger.vue';
 
 export default {
   name: 'Navigation',
   components: {
-    NavHorizontal, NavVertical,
+    NavHorizontal, NavVertical, NavHamburger,
   },
   mixins: [],
   props: {
-    isMobile: {
-      type: Boolean,
-      required: true,
-    },
-    isDesktop: {
-      type: Boolean,
-      required: true,
-    },
     navType: {
       type: String,
       required: true,
@@ -37,16 +30,19 @@ export default {
   }),
   computed: {
     getNavComponent() {
+      console.log('in navigation computing current menu: ', this.navType);
       if (this.navType === 'horizontal') {
         return 'NavHorizontal';
       } else if (this.navType === 'vertical') {
         return 'NavVertical';
+      } else if (this.navType === 'hamburger') {
+        return 'NavHamburger';
       }
       return '';
     },
   },
   created() {
-    console.log('creating navigation');
+    //console.log('creating navigation');
   },
   mounted() {
 

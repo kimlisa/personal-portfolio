@@ -2,8 +2,6 @@
   <div id="app">
     <div :class="navType === 'horizontal' ? 'app__nav-wrapper' : ''">
         <navigation-bar
-          :isMobile="false"
-          :isDesktop="true"
           :navType="navType"
           :showNav="showNav"
         >
@@ -12,8 +10,8 @@
     <div id="app__main-view">
       <router-view
           @homeTransitioned="finishHomeTransition"
-          @navAwayHome="useHorizontalMenu ? navType = 'horizontal' : navType = 'vertical'"
-          @atHome="navType = 'horizontal'"
+          @navAwayHome="determineSizeType"
+          @atHome="determineSizeType"
       ></router-view>
     </div>
     <transition name="fade-in-up">
@@ -47,22 +45,13 @@ export default {
 
   },
   created() {
-    console.log('FIRST: setting app');
     // check window size
-    this.determineSizeType(window.innerWidth);
+    this.determineSizeType();
 
     this.resizeListener = () => {
-      console.log('resizing: ', window.innerWidth);
-      this.determineSizeType(window.innerWidth);
+      this.determineSizeType();
     };
     window.addEventListener('resize', this.resizeListener);
-
-    if (this.$router.currentRoute.name === 'home' || this.useHorizontalMenu) {
-      this.navType = 'horizontal';
-    } else {
-      this.navType = 'vertical';
-      this.showFooter = true;
-    }
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.resizeListener);
@@ -72,22 +61,28 @@ export default {
       this.showNav = true;
       this.showFooter = true;
     },
-    determineSizeType(width) {
-      console.log('window size: ', width);
+    determineSizeType() {
+      const width = window.innerWidth;
+      const currRoute = this.$router.currentRoute.name;
+
       if (width > 1119) {
-        this.isDesktop = true;
-        this.isMobile = false;
-        this.useHorizontalMenu = false;
+        if (currRoute === 'home') {
+          this.navType = 'horizontal';
+        } else {
+          this.navType = 'vertical';
+          this.showFooter = true;
+        }
       } else if (width >= 800 && width <= 1119) {
-        this.isDesktop = true;
-        this.isMobile = false;
-        this.useHorizontalMenu = true;
+        if (currRoute === 'home') {
+          this.navType = 'horizontal';
+        } else {
+          this.navType = 'hamburger';
+          this.showFooter = true;
+        }
       } else if (width < 800) {
-        this.isDesktop = false;
-        this.isMobile = true;
-        this.useHorizontalMenu = false;
+        this.navType = 'hamburger';
       }
-      console.log("use horizontal menu: ", this.useHorizontalMenu)
+      console.log('NAV TYPE @@@@@@ : ', this.navType)
     },
   },
 };
