@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <div :class="navType === 'horizontal' ? 'app__nav-wrapper' : ''">
+
+    <div id="app__main-view">
+      <div :class="navType === 'horizontal' ? 'app__nav-wrapper' : ''">
         <navigation-bar
           :navType="navType"
           :showNav="showNav"
         >
         </navigation-bar>
-    </div>
-    <div id="app__main-view">
+      </div>
       <router-view
           @homeTransitioned="finishHomeTransition"
           @navAwayHome="determineSizeType"
@@ -15,9 +16,9 @@
       ></router-view>
     </div>
     <transition name="fade-in-up">
-      <footer class="app__main-footer" v-if="showFooter">
-        <p class="app__main-footer__text">2018 &copy; developed by Lisa Kim</p>
-        <FooterIcons v-show="navType !== 'horizontal'"/>
+      <footer class="app__main-footer" v-show="$router.currentRoute.name !== 'home'">
+        <p class="app__main-footer__text">2018 developed by Lisa Kim</p>
+        <FooterIcons/>
       </footer>
     </transition>
   </div>
@@ -159,6 +160,9 @@ a {
 </style>
 
 <style scoped>
+  #app {
+    height: 100vh;
+  }
   .app__main-footer {
     color: #B9B9B9;
     font-size: .8em;

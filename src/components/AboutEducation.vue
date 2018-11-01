@@ -5,8 +5,7 @@
         <span class="grad-school">University of Washington</span>
         <span class="grad-date">SEP 2016 - JUN 2018</span>
         <span class="degree-name">B.S. Computer Science</span>
-        <span class="honors">Cum Laude Honors</span>
-        <span class="gpa">GPA 3.76</span>
+        <span class="honors">Cum Laude Honors - GPA 3.76</span>
       </div>
       <div slot="right-content">
         <FontAwesomeIcon icon="graduation-cap" class="section-icon"/>
@@ -31,28 +30,27 @@ export default {
   }
 
   .grad-school {
-    color: #656565;
+    color: #212121;
     font-size: 1.3em;
-    font-weight: 400;
   }
 
   .grad-date {
-    color: #989898;
+    color: #666666;
     font-size: .84em;
     line-height: .98;
     margin-bottom: 25px;
   }
 
-  .honors, .gpa {
+  .honors {
     font-size: .85em;
     color: #646464;
   }
 
-  .degree-name, .honors, .gpa {
+  .degree-name, .honors {
     line-height: 1.4;
   }
   .section-icon {
     color: #D6D6D6;
-    font-size: 7em;
+    font-size: 8em;
   }
 </style>

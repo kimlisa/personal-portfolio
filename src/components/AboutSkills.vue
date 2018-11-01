@@ -5,17 +5,17 @@
         <div class="left-bracket">{</div>
         <ul class="skills list-1">
           <li>Vue.js</li>
-          <li>SPA</li>
-          <li>Python3</li>
+          <li>CSS / HTML</li>
+          <li>Responsive</li>
         </ul>
         <ul class="skills list-2">
-          <li>Responsive</li>
-          <li>CSS / HTML</li>
-          <li>jQuery</li>
+          <li>gRPC / REST</li>
+          <li>Golang</li>
+          <li>Python3</li>
         </ul>
         <ul class="skills list-3">
           <li>MongoDB</li>
-          <li>REST API</li>
+          <li>SPA</li>
           <li>Git / GitHub</li>
         </ul>
         <div class="right-bracket">}</div>

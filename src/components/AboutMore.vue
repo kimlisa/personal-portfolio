@@ -2,15 +2,17 @@
   <PageSection :add-bg="true" title="more">
     <FlexContent slot="content" class="more-section">
       <div slot="left-content">
-        <FontAwesomeIcon icon="book-open" class="more-icon"/>
-        <a href="./kimlisa_resume.pdf" target="_blank">
-          view resume
-        </a><br>
-        <FontAwesomeIcon icon="envelope" class="more-icon email"/>
-        <CopyToClipboard
-          :text="'kimlisa@uw.edu'"
-          :copyType="'email'"
-        />
+        <div class="more-link">
+          <FontAwesomeIcon icon="book-open" class="more-icon"/>
+          <a href="./kimlisa_resume.pdf" target="_blank">view resume</a>
+        </div>
+        <div class="more-link">
+          <FontAwesomeIcon icon="envelope" class="more-icon email"/>
+          <CopyToClipboard
+            :text="'kimlisa@uw.edu'"
+            :copyType="'email'"
+          />
+        </div>
         <div class="social-media">
           <a href="https://github.com/kimlisa" target="_blank">
             <FontAwesomeIcon :icon="['fab', 'github']" class="sm-icon"/>
@@ -63,15 +65,16 @@ export default {
   }
 
   .social-media {
-    font-size: 2.5em;
-    margin-top: 5px;
+    font-size: 2.2em;
+    margin-top: 10px;
   }
 
   .sm-icon {
     margin-right: 16px;
-    color: #595758;
+    color: #5e5b5d;
   }
   .more-icon {
     color: #B1B1B1;
+    margin-right: 12px;
   }
 </style>

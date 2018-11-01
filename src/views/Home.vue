@@ -18,7 +18,7 @@
     <transition name="fade-in" v-on:enter="enterTitle">
       <header class="title" v-if="showTitle">
         <h1>lisa kim</h1>
-        <p>front end developer</p>
+        <p>software developer</p>
       </header>
     </transition>
   </div>
@@ -70,6 +70,7 @@ export default {
     justify-content: center;
     position: relative;
     height: calc(100vh - 135px);
+    font-family: 'Montserrat', sans-serif;
   }
 
   .icon-wrapper,
@@ -90,26 +91,26 @@ export default {
 
 
   .icon {
-    color: #f1f1f1;
+    color: #f3f3f3;
     font-size: 380px;
   }
 
 
   .slash {
-    font-weight: 900;
-    font-size: 30em;
+    font-weight: 700;
+    font-size: 28em;
     position: relative;
     top: 35px;
-    margin: 0 20px;
+    width: 231px;
   }
 
 
   h1 {
-    font-size: 96px;
-    font-weight: 600;
-    letter-spacing: .15em;
+    font-size: 100px;
+    font-weight: 500;
+    letter-spacing: .1em;
     margin:0;
-    color: #000000;
+    color: #2c2a2c;
     line-height: 1.4;
   }
 
